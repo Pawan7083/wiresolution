@@ -1,0 +1,4 @@
+com\learn\wiresolution\JakartaRestConfiguration.class
+com\learn\wiresolution\helper\FactoryProvider.class
+com\learn\wiresolution\resources\JakartaEE10Resource.class
+com\learn\wiresolution\entities\User.class

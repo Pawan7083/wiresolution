@@ -14,7 +14,8 @@
         <link rel="stylesheet" href="CSS/style.css"/>
     </head>
     <body>
-        <%@include file="Components/navbar.jsp" %>
+        <!-- comment    <%@include file="Components/navbar.jsp" %>  -->
+        <%@include file="Components/home.jsp" %>
         <h1>Hello World!</h1>
         
         <script src="JS/script.js"></script>

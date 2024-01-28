@@ -13,5 +13,6 @@
         <property name="hibernate.show_sql">true</property>
         <property name=""></property>
         <mapping class="com.learn.wiresolution.entities.User"></mapping>
+<!--        <mapping class="com.learn.wiresolution.entities.User"></mapping>-->
     </session-factory>
 </hibernate-configuration>

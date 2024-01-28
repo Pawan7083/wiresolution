@@ -1,8 +1,18 @@
 
 package com.learn.wiresolution.entities;
 
+//import jakarta.persistence.Entity;
+
+//import jakarta.persistence.GenerationType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+//import jakarta.persistence.Id;
+
+
 
 /**
  *
@@ -11,12 +21,21 @@ import javax.persistence.Id;
 @Entity
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int id;
     private String name;
+    @Column(unique=true)
+    private String userEmail;
+    private String userPassword;
+    private String userType;
+    private String address;
 
-    public User(int id, String name) {
+    public User(int id, String name,String userEmail,String userPassword, String userType) {
         this.id = id;
         this.name = name;
+        this.userEmail=userEmail;
+        this.userPassword=userPassword;
+        this.userType=userType;
     }
 
     public User() {
@@ -37,6 +56,31 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+    
     
     
 }

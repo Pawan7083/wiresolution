@@ -14,5 +14,6 @@
         <property name=""></property>
         <mapping class="com.learn.wiresolution.entities.User"></mapping>
         <mapping class="com.learn.wiresolution.entities.Category"></mapping>
+<!--        <mapping class="com.learn.wiresolution.entities.Product"></mapping>-->
     </session-factory>
 </hibernate-configuration>

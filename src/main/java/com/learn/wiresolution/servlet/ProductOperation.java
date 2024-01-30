@@ -38,7 +38,7 @@ public class ProductOperation extends HttpServlet {
             
             String operation = request.getParameter("operation");
             HttpSession httpSession = request.getSession();
-            if(operation.trim().equals("category")){
+            if(operation.trim().equalsIgnoreCase("category")){
                 String title=request.getParameter("title");
                 String desc=request.getParameter("description");
                 
@@ -52,10 +52,13 @@ public class ProductOperation extends HttpServlet {
                     return;
                 }
                 else {
-                    httpSession.setAttribute("message", "Category is added successfully.");
-                    response.sendRedirect("login.jsp");
+                    httpSession.setAttribute("message", "Failed to add category.");
+                    response.sendRedirect("admin.jsp");
                     return;
                 }
+            }
+            if(operation.trim().equalsIgnoreCase("product")){
+                
             }
             System.out.println(operation);
         }

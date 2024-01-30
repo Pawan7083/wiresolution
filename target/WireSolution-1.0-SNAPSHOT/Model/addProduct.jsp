@@ -3,48 +3,85 @@
     Created on : Jan 29, 2024, 2:59:39?PM
     Author     : Pawan Kumar
 --%>
+<%@page import="com.learn.wiresolution.dao.CategoryDao" %>
+<%@page import="com.learn.wiresolution.helper.FactoryProvider" %>
+<%@page import="com.learn.wiresolution.entities.Category" %>
+<%@page import="java.util.List" %>
+<%
+    CategoryDao categoryDao= new CategoryDao(FactoryProvider.getFactory());
+    List<Category> category= categoryDao.getCategory();
 
-
+    %>
 <!-- Modal -->
 <div class="modal fade" id="add_product" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="Register" method="post">
+                <form action="ProductOperation" method="post">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">User Name</label>
-                        <input type="text" name="user" class="form-control" id="exampleInputText" aria-describedby="emailHelp" placeholder="Enter name" required>
+                        <label for="exampleInputText1">Product Name</label>
+                        <input type="text" name="product_name" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Enter product name" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required="">
+                        <label for="exampleInputText1">Category</label>
+                        <select class="custom-select">
+                            <% 
+                                for(Category c:category){
+                                %>
+                            <option name="category" value="<%= c.getcId() %>"><%=  c.getcName()   %></option>
+                            
+                            <%
+                                }
+                                %>
+                           
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                        <label for="exampleInputText1">Brand Name</label>
+                        <input type="text" name="brand_name" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Enter brand name" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Confirm Password</label>
-                        <input type="password" name="confirm-password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                        <label for="exampleInputText1">Model Name</label>
+                        <input type="text" name="modal_name" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Enter model name" required>
                     </div>
                     
+                    <div class="form-group">
+                        <label for="exampleInputText1">Price</label>
+                        <input type="text" name="price" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Enter price" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputText1">Discount</label>
+                        <input type="text" name="discount" class="form-control" id="exampleInputPassword1" placeholder="Enter discount price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputText1">Quantity</label>
+                        <input type="text" name="quantity" class="form-control" id="exampleInputPassword1" placeholder="Enter product quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputText1">Picture</label>
+                        <input type="file" name="picture" class="form-control" id="exampleInputPassword1" placeholder="choose file" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputText1">Product Description</label>
+                        <textarea type="text" name="desc" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Enter product description" required=""></textarea>
+
+                    </div>
+
                     <div class="text-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary ">save</button>
                     </div>
-                    
+
 
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+
         </div>
     </div>
 </div>

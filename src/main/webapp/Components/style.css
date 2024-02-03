@@ -24,3 +24,11 @@
 .card-ho:hover{
     background-color: #e8eaf6;
 }
+
+.index-brand-img{
+    background: url("../Images/static image/brandPoster.jpg ");
+    height: 80vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -2,6 +2,7 @@
 package com.learn.wiresolution.dao;
 
 import com.learn.wiresolution.entities.User;
+import java.util.List;
 import org.hibernate.Query;
 
 import org.hibernate.Session;
@@ -63,6 +64,21 @@ public class UserDao {
         
         return i;
     }
+    
+    public List<User> getAllUsers(){
+        List<User> user=null;
+        try{
+            Session session= factory.openSession();
+            Query query= session.createQuery("from User");
+            user=query.list();
+            session.close();
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return user;
+    }
+    
     
     
 }

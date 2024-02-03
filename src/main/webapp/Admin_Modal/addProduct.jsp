@@ -23,18 +23,19 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="ProductOperation" method="post">
+                <form action="ProductOperation" method="post" enctype="multipart/form-data">
+                    <input name="operation" value="product" hidden>
                     <div class="form-group">
                         <label for="exampleInputText1">Product Name</label>
                         <input type="text" name="product_name" class="form-control" id="exampleInputText1" aria-describedby="textHelp" placeholder="Enter product name" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputText1">Category</label>
-                        <select class="custom-select">
+                        <select class="custom-select" name="category">
                             <% 
                                 for(Category c:category){
                                 %>
-                            <option name="category" value="<%= c.getcId() %>"><%=  c.getcName()   %></option>
+                            <option  value="<%= c.getcId() %>"><%=  c.getcName()   %></option>
                             
                             <%
                                 }

@@ -1,4 +1,3 @@
-
 package com.learn.wiresolution.entities;
 
 import javax.persistence.CascadeType;
@@ -8,7 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import org.hibernate.annotations.Cascade;
 
 /**
  *
@@ -16,33 +18,40 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Product {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="product_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
     private int pId;
-    @Column(name="product_name")
+    @Column(name = "product_name")
     private String pName;
-    @Column(name="product_brand")
+    @Column(name = "product_brand")
     private String pBrand;
-    @Column(name="product_brand")
+    @Column(name = "product_modal")
     private String pModal;
-    @Column(name="price")
+    @Column(name = "price")
     private int pPrice;
-    @Column(name="discount")
+    @Column(name = "discount")
     private int pDiscount;
-    @Column(name="quantity")
+    @Column(name = "quantity")
     private int pQuantity;
-    @Column(name="picture")
+    @Column(name = "picture")
     private String pPicture;
-    @Column(name="description")
+    @Column(name = "description")
     private String pDesc;
-    
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_category_id")
+
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinTable(
+            name = "Product_Category",
+            joinColumns = {
+                @JoinColumn(name = "pId")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "cId")}
+    )
     private Category category;
-    
-    public Product(){
-        
+
+    public Product() {
+
     }
 
     public Product(int pId, String pName, String pBrand, String pModal, int pPrice, int pDiscount, int pQuantity, String pPicture, String pDesc, Category category) {
@@ -149,6 +158,5 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
-    
-    
+
 }

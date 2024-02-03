@@ -46,17 +46,30 @@ public class CategoryDao {
     public List<Category> getCategory() {
         List<Category> category=null;
         try {
-            Session session= this.factory.openSession();
+            Session session= factory.openSession();
             Query query=session.createQuery("from Category");
             category = query.list();
-            
+            session.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return category;
     }
-    public static void main(String[] args) {
-        CategoryDao category= new CategoryDao(FactoryProvider.getFactory());
-        category.getCategory();
+    
+    public Category getCategory(int categoryId){
+        Category category=null;
+        try{
+            Session session = factory.openSession();
+            category= (Category)session.get(Category.class, categoryId);
+            session.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return category;
     }
+//    public static void main(String[] args) {
+//        CategoryDao category= new CategoryDao(FactoryProvider.getFactory());
+//        category.getCategory();
+//    }
 }

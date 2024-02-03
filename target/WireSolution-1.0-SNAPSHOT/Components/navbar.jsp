@@ -3,23 +3,39 @@
     Created on : Jan 20, 2024, 8:35:15?AM
     Author     : Pawan Kumar
 --%>
+<%@page import="com.learn.wiresolution.entities.User" %> 
 
 <div class="container-fluid " style="height: 10px; background-color:#303f9f"></div>
 <div class="container-fluid p-2 bg-light">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h3 style="color: #303f9f;">Wired Solution</h3>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5 " >
             <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
-        <div class="col-md-3">
+        <%
+    User user = (User)session.getAttribute("user");
+    
+    if(user==null){
+    %>
+        <div class="col-md-3 text-right">
             <a href="login.jsp" class="btn btn-success">Login</a>
             <a href="registration.jsp" class="btn btn-primary">Register</a>
         </div>
+    <%
+        }
+else{
+        
+        %>
+        <div class="col-md-3 text-right">
+            <a href="index.jsp" class="btn btn-success"><%= user.getName() %></a>
+            <a href="Logout" class="btn btn-primary">Logout</a>
+        </div>
+        <% } %>
     </div>
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
@@ -34,13 +50,16 @@
         <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#"><i class="fa-solid fa-book-open"></i> Recent Book</a>
+        <a class="nav-link" href="#"><i class="fa-solid fa-list"></i> All categories</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#"><i class="fa-solid fa-book-open"></i> Old Book</a>
+        <a class="nav-link" href="#"><i class="fa-brands fa-product-hunt"></i> Products</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#"><i class="fa-solid fa-book-open"></i> New Book</a>
+        <a class="nav-link" href="#"><i class="fa-solid fa-store"></i></i> Store network</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><i class="fa-brands fa-servicestack"></i></i> Services</a>
       </li>
       
       

@@ -4,11 +4,13 @@
  */
 package com.learn.wiresolution.entities;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,10 +26,12 @@ public class Category {
     private String cName;
     @Column (name="category_description")
     private String cDesc;
-    
+    @OneToMany(mappedBy="category")
+    private List<Product> product;
     public Category(){
         
     }
+    
     public Category(int cId,String cName, String cDesc){
         this.cId=cId;
         this.cName=cName;
@@ -60,6 +64,14 @@ public class Category {
 
     public void setcDesc(String cDesc) {
         this.cDesc = cDesc;
+    }
+
+    public List<Product> getProduct() {
+        return product;
+    }
+
+    public void setProduct(List<Product> product) {
+        this.product = product;
     }
     
 }

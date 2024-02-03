@@ -5,6 +5,8 @@
 package com.learn.wiresolution.dao;
 
 import com.learn.wiresolution.entities.Product;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -34,5 +36,18 @@ public class ProductDao {
             e.printStackTrace();
         }
         return true;
+    }
+    
+    public List<Product> getAllProducts(){
+        List<Product> product=null;
+        try{
+           Session session= factory.openSession();
+           Query query = session.createQuery("from Product");
+           product = query.list();
+           session.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return product;
     }
 }

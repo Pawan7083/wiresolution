@@ -56,12 +56,12 @@ public class Login extends HttpServlet {
                 }
             }
             else{
-                if(user.getUserType().equals("Normail")){
+                if(user.getUserType().equalsIgnoreCase("normal")){
                     httpSession.setAttribute("user",user);
                     response.sendRedirect("index.jsp");
                     return;
                 }
-                else if(user.getUserType().equals("admin")){
+                else if(user.getUserType().equalsIgnoreCase("admin")){
                     httpSession.setAttribute("user",user);
                     response.sendRedirect("admin.jsp");
                     return;

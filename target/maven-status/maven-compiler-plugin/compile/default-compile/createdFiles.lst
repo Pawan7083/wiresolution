@@ -1,11 +1,14 @@
 com\learn\wiresolution\entities\Product.class
 com\learn\wiresolution\JakartaRestConfiguration.class
 com\learn\wiresolution\dao\UserDao.class
+com\learn\wiresolution\dao\ProductDao.class
 com\learn\wiresolution\helper\FactoryProvider.class
 com\learn\wiresolution\servlet\ProductOperation.class
 com\learn\wiresolution\resources\JakartaEE10Resource.class
 com\learn\wiresolution\servlet\Login.class
 com\learn\wiresolution\dao\CategoryDao.class
+com\learn\wiresolution\servlet\Logout.class
 com\learn\wiresolution\entities\Category.class
 com\learn\wiresolution\servlet\Register.class
 com\learn\wiresolution\entities\User.class
+hiii.class

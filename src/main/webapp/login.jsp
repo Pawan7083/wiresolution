@@ -37,7 +37,8 @@
                                 </div>
                                 
                                 <div class="text-center mt-2">
-                                    <span>new user </span>
+                                    <a href="forgot.jsp">forgot password.</a>
+                                    <span>new user? </span>
                                     <a href="registration.jsp">Register</a>
                                 </div>
                                 

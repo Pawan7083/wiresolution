@@ -38,7 +38,7 @@
                 
             <div class="container">
                 
-                <div class="row">
+                <div class="row" data-toggle="modal" data-target="#all_user">
                     <div class="col-md-3 pe-autp">
                         <div class="card card-ho">
                             <div class="card-body text-center">
@@ -46,14 +46,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3" data-toggle="modal" data-target="#all_product">
                         <div class="card card-ho">
                             <div class="card-body text-center">
                                 <h4>All Product</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3" data-toggle="modal" data-target="#all_category">
                         <div class="card card-ho">
                             <div class="card-body text-center">
                                 <h4>All Categories</h4>
@@ -126,5 +126,8 @@
         <%@include file="Admin_Modal/addCategory.jsp" %>
         <%@include file="Admin_Modal/addProduct.jsp" %>
         <%@include file="Admin_Modal/useredit.jsp" %>
+        <%@include file="Admin_Modal/allCategory.jsp" %>
+        <%@include file="Admin_Modal/allUser.jsp" %>
+        <%@include file="Admin_Modal/allProduct.jsp" %>
     </body>
 </html>

@@ -5,7 +5,6 @@
 package com.learn.wiresolution.dao;
 
 import com.learn.wiresolution.entities.Category;
-import com.learn.wiresolution.helper.FactoryProvider;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;

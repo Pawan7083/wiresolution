@@ -97,7 +97,9 @@ public class ProductOperation extends HttpServlet {
                 boolean bool = productDao.addProduct(product);
                 if(bool==true){
                     String path=getServletContext().getRealPath("Images");
-                    part.write(path+File.separator+fileName);
+                    part.write(path+File.separator+"Product"+File.separator+fileName);
+                    String pa= getServletContext().getRealPath("");
+                    System.out.println("path : "+ path);
                     
                 }
                 httpSession.setAttribute("message", "Product added sucessfully...");

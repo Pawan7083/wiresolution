@@ -29,7 +29,7 @@ public class User {
     private String userPassword;
     private String userType;
     private String address;
-
+    private String image;
     public User(int id, String name,String userEmail,String userPassword, String userType) {
         this.id = id;
         this.name = name;
@@ -38,6 +38,16 @@ public class User {
         this.userType=userType;
     }
 
+    public User(int id, String name, String userEmail, String userPassword, String userType, String address, String image) {
+        this.id = id;
+        this.name = name;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.userType = userType;
+        this.address = address;
+        this.image = image;
+    }
+    
     public User() {
     }
 
@@ -79,6 +89,22 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
     
     

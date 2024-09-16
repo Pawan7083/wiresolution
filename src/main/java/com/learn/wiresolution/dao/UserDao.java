@@ -49,6 +49,23 @@ public class UserDao {
         }
         return user;
     }
+    public User getUserByEmailAndName(String email,String name){
+        User user=null;
+        try{
+            String query="from User where userEmail=:e and name=:p";
+            Session session = factory.openSession();
+            Query q= session.createQuery(query);
+            q.setParameter("e",email);
+            q.setParameter("p",name);
+            user=(User)q.uniqueResult();
+            session.close();
+            
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return user;
+    }
     public boolean addUser(User user){
         boolean i=false;
         try{
@@ -79,6 +96,27 @@ public class UserDao {
         return user;
     }
     
-    
+    public boolean resetPassword(String email, String password){
+        boolean i=false;
+        try{
+            String query= "update User set userPassword=:x where userEmail=:y";
+            Session session=factory.openSession();
+            Transaction tx= session.beginTransaction();
+            
+           Query q= session.createQuery(query);
+           q.setParameter("x", password);
+           q.setParameter("y", email);
+           q.executeUpdate();
+           
+            
+            tx.commit();
+            session.close();
+            i=true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return i;
+    }
     
 }
